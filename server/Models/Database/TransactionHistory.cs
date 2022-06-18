@@ -13,6 +13,8 @@ namespace server.Models.Database
         public DateTime Date { get; set; }
         public short TransactionTypeId { get; set; }
         public string UserId { get; set; }
+        public int SavingAccountId { get; set; }
+        public SavingAccount SavingAccount { get; set; }
         public TransactionType TransactionType { get; set; }
         public User User { get; set; }
     }

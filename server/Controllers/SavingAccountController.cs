@@ -62,7 +62,8 @@ namespace server.Controllers
                         Amount = depositAccountRequest.Amount,
                         Date = DateTime.Now,
                         TransactionTypeId = (int)TransactionTypeEnum.DEPOSIT,
-                        UserId = savingAccount.UserId
+                        UserId = savingAccount.UserId,
+                        SavingAccountId = savingAccount.Id
                     };
 
                     await _databaseContext.TransactionHistory.AddAsync(transaction);
@@ -105,7 +106,8 @@ namespace server.Controllers
                             Amount = withdrawalAccountRequest.Amount,
                             Date = DateTime.Now,
                             TransactionTypeId = (int)TransactionTypeEnum.WITHDRAWAL,
-                            UserId = savingAccount.UserId
+                            UserId = savingAccount.UserId,
+                            SavingAccountId = savingAccount.Id
                         };
 
                         await _databaseContext.TransactionHistory.AddAsync(transaction);

@@ -24,6 +24,12 @@ namespace server.Data
                 .WithMany()
                 .HasForeignKey(t => t.TransactionTypeId)
                 .IsRequired();
+
+            builder.Entity<TransactionHistory>()
+                .HasOne(t => t.SavingAccount)
+                .WithMany()
+                .HasForeignKey(t => t.SavingAccountId)
+                .IsRequired();
         }
     }
 }

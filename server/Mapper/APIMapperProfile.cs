@@ -24,7 +24,8 @@ namespace server.Mapper
             CreateMap<SavingAccount, AccountResponse>();
 
             CreateMap<TransactionHistory, PageTransactionHistoryResponse.TransactionHistoryResponse>()
-                .ForMember(d => d.TypeTransaction, opt => opt.MapFrom(s => s.TransactionType.Description));
+                .ForMember(d => d.TypeTransaction, opt => opt.MapFrom(s => s.TransactionType.Description))
+                .ForMember(d => d.AccountNumber, opt=> opt.MapFrom(s => s.SavingAccount.AccountNumber));
         }
     }
 }

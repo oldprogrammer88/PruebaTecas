@@ -72,7 +72,9 @@ namespace server.Controllers
 
                     var transactions = databaseContext.TransactionHistory
                         .Include(t => t.TransactionType)
+                        .Include(t => t.SavingAccount)
                         .Where(t => t.UserId == user.Id)
+                        .OrderBy( t => t.Date)
                         .Skip(skipPages)
                         .Take(pageTransactionHistoryRequest.Size);
 

@@ -13,7 +13,7 @@ import { TransactionDataSourceService } from 'src/app/services/transaction-data-
 export class TransactionHistoryComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  displayedColumns = ["date","typeTransaction","amount"];
+  displayedColumns = ["date","typeTransaction","amount","accountNumber"];
   dataSource: TransactionDataSourceService;
   email: string = "";
   size = 5;
@@ -23,8 +23,7 @@ export class TransactionHistoryComponent implements OnInit, AfterViewInit {
   constructor(private apiService: APIService, private authService: AuthService) {
     this.dataSource = new TransactionDataSourceService(this.apiService);
     this.dataSource.getTotalPages.subscribe(totalPages => {
-      this.totalPages=totalPages
-      console.log("change total page ", totalPages)
+      this.totalPages=totalPages;
     });
   }
 
@@ -42,9 +41,6 @@ export class TransactionHistoryComponent implements OnInit, AfterViewInit {
   }
 
   loadMoreData() {
-    console.log("pageIndex", this.page);
-    console.log("pageSize", this.size);
-    console.log("totalPages", this.totalPages);
     this.dataSource.loadTransactions(
       this.email,
       this.paginator.pageIndex,

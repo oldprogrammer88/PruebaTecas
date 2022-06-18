@@ -9,6 +9,7 @@
 
         public class TransactionHistoryResponse
         {
+            public int AccountNumber { get; set; }
             public string TypeTransaction { get; set; }
             public decimal Amount { get; set; }
             public DateTime Date { get; set; }
