@@ -1,0 +1,15 @@
+<div mat-dialog-title>Retiros</div>
+<div mat-dialog-content>
+    <form [formGroup]="formWithdrawal">
+        <mat-form-field>
+            <mat-label>Cantidad a Retirar</mat-label>
+            <input matInput formControlName="amount" placeholder="Cantidad" type="number">
+            <mat-hint>Cantidad a Retirar</mat-hint>
+            <mat-error *ngIf="formWithdrawal.get('amount')?.invalid">{{getErrorMessage('amount','Cantidad a Retirar')}}</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button (click)="withdrawal()" [disabled]="!formWithdrawal.valid || saving" mat-raised-button color="warn" type="button">Retirar</button>
+</div>
+

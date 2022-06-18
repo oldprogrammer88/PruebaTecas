@@ -1,0 +1,21 @@
+<div class="father">
+    <mat-card>
+        <h1>Bienvenido a Prestamos Confiamos en Ti - Login</h1>
+        <form [formGroup]="formLogin">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email">
+                <mat-hint>Escriba su nombre o nombres</mat-hint>
+                <mat-error *ngIf="formLogin.get('email')?.invalid">{{getErrorMessage('email','Email')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="password" matInput type="password" placeholder="Contraseña">
+                <mat-hint>Escriba su contraseña</mat-hint>
+                <mat-error *ngIf="formLogin.get('password')?.invalid">{{getErrorMessage('password','Contraseña')}}</mat-error>
+            </mat-form-field>
+        </form>
+        <button (click)="login()" [disabled]="!formLogin.valid || saving" mat-raised-button color="primary" type="button">Login</button><br>
+        ¿No Cuentas con un usuario? <a mat-button routerLink="../register">Registrate aquí</a>
+    </mat-card>
+</div>

@@ -1,0 +1,28 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-sidenav-container {
+    padding: 1em;
+}
+
+a {
+    text-decoration: none;
+    white-space: normal;
+}
+
+button {
+    min-width: min-content;
+}
+
+.example-icon {
+    padding: 0;
+}
+
+.mat-sidenav {
+    width: 18em;
+}
+
+.mat-sidenav a {
+    width: 100%;
+}

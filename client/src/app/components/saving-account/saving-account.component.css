@@ -1,0 +1,45 @@
+h1 {
+    text-align: center;
+}
+
+.accounts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-saving-account {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: blue;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.accounts p {
+    text-align: center;
+}
+
+.content-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}
+
+.mat-card {
+    width: 200px;
+    height: 210px;
+    margin: 10px;
+}
+
+.mat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

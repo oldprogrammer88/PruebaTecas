@@ -1,0 +1,20 @@
+<h1>Aperturar una Cuenta</h1>
+<div>
+    <mat-card fxLayout="column" fxLayoutAlign="center center">
+        <form [formGroup]="formAddSavingAccount">
+            <mat-form-field>
+                <mat-label>Número de la cuenta</mat-label>
+                <input matInput formControlName="accountNumber" placeholder="Número de la cuenta" type="number">
+                <mat-hint>Número de la cuenta a aperturar</mat-hint>
+                <mat-error *ngIf="formAddSavingAccount.get('accountNumber')?.invalid">{{getErrorMessage('accountNumber','Número de Cuenta')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Saldo Inicial</mat-label>
+                <input matInput formControlName="initialBalance" placeholder="Saldo Inicial" type="number" value="0" min="0">
+                <mat-hint>Saldo Inicial</mat-hint>
+                <mat-error *ngIf="formAddSavingAccount.get('initialBalance')?.invalid">{{getErrorMessage('initialBalance','Saldo Inicial')}}</mat-error>
+            </mat-form-field>
+        </form>
+        <button (click)="addSavingAccount()" [disabled]="!formAddSavingAccount.valid || saving" mat-raised-button color="primary" type="button">Aperturar Cuenta de Ahorro</button>
+    </mat-card>
+</div>

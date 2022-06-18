@@ -1,0 +1,44 @@
+<div class="father">
+    <mat-card>
+        <h1>Bienvenido a Prestamos Confiamos en Ti - Registro</h1>
+        <form [formGroup]="formLogin">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email">
+                <mat-hint>Escriba su nombre o nombres</mat-hint>
+                <mat-error *ngIf="formLogin.get('email')?.invalid">{{getErrorMessage('email','Email')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nombre(s)</mat-label>
+                <input matInput formControlName="name" placeholder="Nombre(s)">
+                <mat-hint>Escriba su nombre o nombres</mat-hint>
+                <mat-error *ngIf="formLogin.get('name')?.invalid">{{getErrorMessage('name','Nombre')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Apellido Paterno</mat-label>
+                <input formControlName="lastname" matInput placeholder="Apellido Paterno">
+                <mat-hint>Escriba su apellido paterno</mat-hint>
+                <mat-error *ngIf="formLogin.get('lastname')?.invalid">{{getErrorMessage('lastname','Apellido Paterno')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Apellido Materno</mat-label>
+                <input formControlName="secondLastname" matInput placeholder="Apellido Materno">
+                <mat-hint>Escriba su apellido materno (opcional)</mat-hint>
+                <mat-error *ngIf="formLogin.get('secondLastname')?.invalid">{{getErrorMessage('secondLastname','Apellido Materno')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Número de Identificación</mat-label>
+                <input formControlName="identificationNumber" matInput placeholder="Número de Identificación" type="number">
+                <mat-hint>Escriba su numero de identificación</mat-hint>
+                <mat-error *ngIf="formLogin.get('identificationNumber')?.invalid">{{getErrorMessage('identificationNumber','Número de identificación')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="password" matInput type="password" placeholder="Contraseña">
+                <mat-hint>Escriba su contraseña</mat-hint>
+                <mat-error *ngIf="formLogin.get('password')?.invalid">{{getErrorMessage('password','Contraseña')}}</mat-error>
+            </mat-form-field>
+        </form>
+        <button (click)="register()" [disabled]="!formLogin.valid || saving" mat-raised-button color="primary" type="button">Registrarse</button>
+    </mat-card>
+</div>

@@ -1,0 +1,14 @@
+<div mat-dialog-title>Depositos</div>
+<div mat-dialog-content>
+    <form [formGroup]="formDeposit">
+        <mat-form-field>
+            <mat-label>Cantidad a Depositar</mat-label>
+            <input matInput formControlName="amount" placeholder="Cantidad" type="number">
+            <mat-hint>Cantidad a Depositar</mat-hint>
+            <mat-error *ngIf="formDeposit.get('amount')?.invalid">{{getErrorMessage('amount','Cantidad a Depositar')}}</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button (click)="deposit()" [disabled]="!formDeposit.valid || saving" mat-raised-button color="primary" type="button">Depositar</button>
+</div>

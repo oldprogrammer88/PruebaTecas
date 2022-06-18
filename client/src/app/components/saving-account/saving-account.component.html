@@ -1,0 +1,28 @@
+<h1>Cuentas de Ahorro</h1>
+<div class="accounts">
+    <mat-card *ngFor="let savingAccount of accounts; let i = index" class="mat-elevation-z8">
+        <mat-card-content>
+            <p class="title-saving-account">Cuenta de Ahorro</p>
+            <p class="title">Número de cuenta</p>
+            <p>{{savingAccount.accountNumber}}</p>
+            <p class="title">Saldo Actual</p>
+            <p>{{savingAccount.balance | currency}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="deposit(savingAccount.accountNumber, i)" color="primary">Depositar</button>
+            <button mat-raised-button (click)="withdrawal(savingAccount.accountNumber, savingAccount.balance, i)" color="warn">Retirar</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="mat-elevation-z8">
+        <mat-card-content class="content-add">
+            <p>
+                En esta opción puede agregar una cuenta nueva
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-fab color="primary" routerLink="../add-saving-account">
+                <mat-icon>add</mat-icon>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>
